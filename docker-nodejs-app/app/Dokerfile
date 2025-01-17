@@ -1,7 +1,18 @@
+# Utiliser une image officielle Node.js
 FROM node:14
+
+# Définir le répertoire de travail
 WORKDIR /usr/src/app
+
+# Copier les fichiers package et installer les dependences
 COPY package*.json ./
 RUN npm install
+
+# Copier le code de l'application
 COPY . .
+
+# Exposer le port utilisé par l'application
 EXPOSE 3000
+
+# Démarer l'application
 CMD [ "npm", "start" ]
